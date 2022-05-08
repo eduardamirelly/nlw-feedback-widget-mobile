@@ -60,7 +60,7 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props
       console.log(screenshotBase64);
       await api.post('/feedbacks', {
         type: feedbackType,
-        screenshot: `data:image/png;base64: ${screenshotBase64}`,
+        screenshot: `data:image/png;base64, ${screenshotBase64}`,
         comment
       })
 
