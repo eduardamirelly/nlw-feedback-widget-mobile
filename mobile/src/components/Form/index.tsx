@@ -9,6 +9,7 @@ import {
 
 import { ArrowLeft } from 'phosphor-react-native';
 import { captureScreen } from 'react-native-view-shot';
+import * as FileSystem from 'expo-file-system';
 
 import { FeedbackType } from '../Widget';
 import { ScreenshotButton } from '../ScreenshotButton';
@@ -53,15 +54,17 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props
     }
 
     setIsSendingFeedback(true);
+    const screenshotBase64 = screenshot && await FileSystem.readAsStringAsync(screenshot, { encoding: 'base64' });
 
     try {
-      console.log('')
+      console.log(screenshotBase64);
       await api.post('/feedbacks', {
         type: feedbackType,
-        screenshot,
+        screenshot: `data:image/png;base64: ${screenshotBase64}`,
         comment
       })
 
+      setIsSendingFeedback(false);
       onFeedbackSent();
     } catch (error) {
       console.log(error);
@@ -97,6 +100,7 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: Props
         placeholder="Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo..."
         placeholderTextColor={theme.colors.text_secondary}
         onChangeText={setComment}
+        autoCorrect={false}
       />
 
       <View style={styles.footer}>
