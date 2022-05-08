@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-  View,
   Text,
   TouchableOpacity,
   TouchableOpacityProps,
@@ -16,7 +15,7 @@ interface Props extends TouchableOpacityProps {
 
 export function Button({ isLoading }: Props) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       {
         isLoading 
         ? 
@@ -28,6 +27,6 @@ export function Button({ isLoading }: Props) {
           Enviar Feedback
         </Text>
       }
-    </View>
+    </TouchableOpacity>
   );
 }
