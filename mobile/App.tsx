@@ -22,6 +22,8 @@ export default function App() {
     return null;
   }
 
+  SplashScreen.hideAsync();
+
   return (
     <View style={{
       flex: 1,
