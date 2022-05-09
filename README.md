@@ -45,6 +45,20 @@ Run this command on your terminal in ./server directory:
 npx prisma migrate dev
 ```
 
+### Third Step [Mailtrap Credentials]
+
+Find ```nodemailer-mail-adapter.ts``` file in ./server and put your mailtrap credentials:
+```cl
+const transport = nodemailer.createTransport({
+	host: {MAIL_HOST},
+	port: 2525,
+	auth: {
+		user: {MAIL_USER},
+		pass: {MAIL_PASSWORD}
+	}
+});
+```
+
 ### Last Step [Run]
 
 Download Expo Go app in your phone to see this app running or you can use some emulator for Android or IOS.
