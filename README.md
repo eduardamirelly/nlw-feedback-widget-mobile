@@ -22,7 +22,7 @@ Application for help final users when something happen on your web page, making 
 
 ## 🔖 Layout
 
-You can view the project layout through [this link](https://www.figma.com/community/file/1102912516166573468). It's necessary have account on [Figma](http://figma.com/) to access.
+You can view the project layout through [this link](https://www.figma.com/community/file/1102912516166573468).
 
 ## Running the project
 
